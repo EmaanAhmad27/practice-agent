@@ -4,7 +4,7 @@ from agents import Researcher_Agent, SEO_Expert_Agent, Content_Editor_Agent, SEO
 
 research_task = Task(
     name="Comprehensive Topic Research",
-    description="The Researcher Agent will conduct a detailed web search using Google Serper Search to gather relevant, up-to-date, and authoritative information on a topic {topic}. The agent will extract key insights, statistics, competitor content summaries, and trending subtopics.",
+    description="The Researcher Agent will conduct a detailed web search using Google Serper Search to gather relevant, up-to-date, and authoritative information on a topic {topic}. The agent will extract key insights, statistics, latest information about the topic competitor content summaries, and trending subtopics.",
     expected_output= "Summary of key findings (main ideas, trends, and essential details), List of authoritative sources (with URLs for credibility), Competitor content breakdown (brief analysis of top-ranking articles), Relevant statistics & data points (to add credibility to the blog), Common audience questions & pain points (for engagement and SEO optimization)",
     tools=[research_tool],
     agent= Researcher_Agent
