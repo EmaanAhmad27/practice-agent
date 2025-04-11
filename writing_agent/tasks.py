@@ -4,9 +4,15 @@ from agents import Researcher_Agent, SEO_Expert_Agent, Content_Editor_Agent, SEO
 
 research_task = Task(
     name="Comprehensive Topic Research",
-    description="The Researcher Agent will conduct a detailed web search using Google Serper Search to gather relevant, up-to-date, and authoritative information on a topic {topic}. The agent will extract key insights, statistics, latest information about the topic competitor content summaries, and trending subtopics.",
-    expected_output= "Summary of key findings (main ideas, trends, and essential details), List of authoritative sources (with URLs for credibility), Competitor content breakdown (brief analysis of top-ranking articles), Relevant statistics & data points (to add credibility to the blog), Common audience questions & pain points (for engagement and SEO optimization)",
-    tools=[research_tool],
+    description="The Researcher Agent will conduct a detailed web search using Google Serper Search to gather relevant, up-to-date, and authoritative information on a topic {topic}. The agent will extract key insights, statistics, latest information about the topic, competitor content summaries, and trending subtopics.",
+    expected_output= (
+    "Polished blog post with:"
+    " - Fixed grammar, spelling, and punctuation"
+    " - Improved sentence flow and structure"
+    " - Engaging and consistent tone"
+    " - Correct and natural keyword usage"
+    " - Final formatting (H1, H2, bullet points, etc.) ready to publish"),
+    tool=[research_tool],
     agent= Researcher_Agent
 )
 
@@ -18,7 +24,7 @@ SEO_task = Task(
                       "Heading structure suggestions (H1, H2, H3 based on SEO best practices)"
                       "Keyword placement recommendations (where to use them naturally)"
                       "Internal & external link recommendations (for improved content authority)"),
-    tools=[SEO_tool],
+    tool=[SEO_tool],
     agent= SEO_Expert_Agent
     )
 
@@ -31,7 +37,7 @@ Content_task = Task(
                        "Seamless keyword integration (without keyword stuffing)"
                        "Well-researched insights & examples (to add value to readers)"
                        "Internal & external links added (for improved SEO and credibility)"),
-    tools=[Writing_tool],
+    tool=[Writing_tool],
     agent= SEO_Content_Writer_Agent
 )
 
@@ -39,6 +45,6 @@ Editing_task = Task(
     name = "Content Polishing & SEO Refinement",
     description = "The Editor Agent will review the blog draft to improve clarity, readability, and overall flow while ensuring SEO best practices are maintained. The agent will check for grammar, spelling, tone consistency, and keyword placement, making sure the content on the topic {topic} is engaging, professional, and free of errors.",
     expected_output= "A final blog in a blog form",
-    tools=[Editor_tool],
+    tool=[Editor_tool],
     agent= Content_Editor_Agent
 )
