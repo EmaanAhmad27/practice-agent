@@ -5,7 +5,9 @@ import os
 load_dotenv()
 llm = LLM(
     api_key = os.getenv("APIKey"),
-    model = "gemini/gemini-1.5-flash"
+    model = "gemini/gemini-1.5-flash",
+    top_p=0.9,
+    temperature=0.9,
 )
 
 Researcher_Agent = Agent(
@@ -28,7 +30,7 @@ SEO_Expert_Agent = Agent(
 )
 SEO_Content_Writer_Agent = Agent(
     role = "SEO Content Writer",
-    goal = "Transform research and SEO insights into well-structured, engaging, and optimized blog content. Ensure that the content on the topic {topic} is informative, compelling, and aligned with search engine best practices. Seamlessly integrates keywords, follows SEO-friendly formatting, and ensures content meets audience intent.",
+    goal = "Transform research and SEO insights into well-structured, engaging, and optimized blog content. Ensure that the content on the topic {topic} is informative, compelling, and aligned with search engine best practices. Do not include raw keyword lists. Seamlessly integrates keywords, follows SEO-friendly formatting, and ensures content meets audience intent. Meta title should be of 50 to 60 characters and meta description of 150 to 160 characters",
     backstory = "This agent was originally developed to assist freelance writers and bloggers in crafting high-quality articles at scale. It was trained on a diverse range of successful blog posts, journalism techniques, and digital marketing strategies. Over time, it learned to mimic human writing styles, adapt to different tones, and balance creativity with SEO structure. Now, it works alongside researchers, SEO strategists, and editors to produce content that ranks well while keeping readers engaged.",
     memory = True,
     verbose = False,
